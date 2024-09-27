@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicación Google Drive</title>
+</head>
+<body>
+    <h1>Aplicación para Cargar y Consultar Archivos en Google Drive</h1>
+    
+    <h2>Autenticarse con Google</h2>
+    <a href="/auth">Iniciar sesión con Google</a>
+
+    <h2>Subir un Archivo</h2>
+    <form id="uploadForm" enctype="multipart/form-data" method="POST" action="/upload">
+        <input type="file" name="file" required>
+        <button type="submit">Subir Archivo</button>
+    </form>
+
+    <h2>Consultar Archivos en Google Drive</h2>
+    <button id="fetchFiles">Ver Archivos</button>
+    <div id="filesList"></div>
+
+    <script>
+        document.getElementById('fetchFiles').onclick = async function() {
+            try {
+                const response = await fetch('/files');
+                if (!response.ok) {
+                    throw new Error('Error al obtener los archivos: ' + response.statusText);
+                }
+                const files = await response.json();
+                const filesList = document.getElementById('filesList');
+                filesList.innerHTML = ''; // Limpiar la lista anterior
+
+                if (files.length === 0) {
+                    filesList.innerHTML = '<p>No hay archivos en Google Drive.</p>';
+                } else {
+                    const ul = document.createElement('ul');
+                    files.forEach(file => {
+                        const li = document.createElement('li');
+                        li.textContent = `ID: ${file.id}, Nombre: ${file.name}`;
+                        ul.appendChild(li);
+                    });
+                    filesList.appendChild(ul);
+                }
+            } catch (error) {
+                alert(error.message);
+            }
+        };
+    </script>
+</body>
+</html>
+
