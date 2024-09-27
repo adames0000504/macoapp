@@ -1,21 +1,17 @@
 {
-  "name": "maco.app",
+  "name": "google-drive-upload-app",
   "version": "1.0.0",
+  "description": "App para subir y listar archivos en Google Drive",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.3",
-    "dotenv": "^16.4.5",
-    "express": "^4.21.0",
-    "fs": "^0.0.1-security",
-    "googleapis": "^144.0.0",
-    "multer": "^1.4.5-lts.1",
+    "express": "^4.18.2",
+    "googleapis": "^105.0.0",
+    "dotenv": "^16.0.3",
+    "multer": "^1.4.5",
+    "fs": "0.0.1-security",
     "path": "^0.12.7"
-  },
-  "description": ""
+  }
 }
