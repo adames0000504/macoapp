@@ -37,7 +37,7 @@ const upload = multer({ storage: storage });
 // Esta ruta redirige al usuario a la página de inicio de sesión de Google
 app.get('/auth', (req, res) => {
     const url = oauth2Client.generateAuthUrl({
-        access_type: 'offline',
+        access_type: 'online',
         scope: SCOPES,
     });
     res.redirect(url); // Redirigimos al usuario a Google
