@@ -1,4 +1,4 @@
- HEAD
+/* HEAD
 // 1. Configuración de la API de Google Drive
 const express = require('express'); // Importa Express para crear el servidor
 const { google } = require('googleapis'); // Importa la librería de Google para usar Google Drive
@@ -118,9 +118,9 @@ app.get('/files', async (req, res) => {
 app.listen(3000, () => {
     console.log('Servidor funcionando en http://localhost:3000');
 });
+*/
 
 
-/*
 // 1. Configuración de la API de Google Drive
 const express = require('express'); // Importa Express para crear el servidor
 const { google } = require('googleapis'); // Importa la librería de Google para usar Google Drive
@@ -241,4 +241,4 @@ app.listen(3000, () => {
     console.log('Servidor funcionando en http://localhost:3000');
 });
  1ff950a (Primer commit)
-*/
+
